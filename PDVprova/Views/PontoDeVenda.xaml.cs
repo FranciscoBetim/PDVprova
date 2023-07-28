@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PDVprova.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,8 +32,6 @@ namespace PDVprova.Views
             items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
             items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
             items.Add(new User() { Name = "Sammy Doe", Age = 7, Mail = "sammy.doe@gmail.com" });
-            ListaProdutos.ItemsSource = items;
-            items.Remove(items[items.FindIndex(x => x.Name == "Sammy Doe")]);
             ListaProdutos.ItemsSource = items;
         }
     }
