@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PDVprova.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace PDVprova
         public MainWindow()
         {
             InitializeComponent();
+            Main.Content = new PontoDeVenda();
         }
     }
 }
+
