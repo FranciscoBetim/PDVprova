@@ -1,4 +1,5 @@
 ﻿using PDVprova.Models;
+using PDVprova.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,26 +22,31 @@ namespace PDVprova.Views
     /// </summary>
     public partial class PontoDeVenda : Page
     {
+        Atividade atividade = new Atividade("21.2");
         public PontoDeVenda()
         {
             InitializeComponent();
+            this.DataContext = atividade;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            List<User> items = new List<User>();
+           /* List<User> items = new List<User>();
             items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
             items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
             items.Add(new User() { Name = "Sammy Doe", Age = 7, Mail = "sammy.doe@gmail.com" });
-            ListaProdutos.ItemsSource = items;
+            ListaProdutos.ItemsSource = items;*/
+        }
+
+        private void BotaoPressionado(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.F1)
+            {
+                atividade.DarDesconto();
+                this.DataContext = atividade;
+            }
+
         }
     }
-    public class User
-    {
-        public string Name { get; set; }
-
-        public int Age { get; set; }
-
-        public string Mail { get; set; }
-    }
+   
 }

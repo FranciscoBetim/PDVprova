@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       Title="PontoDeVenda" Height="770" Width="1500">
 
-    <Grid>
+    <Grid KeyDown="BotaoPressionado">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
@@ -33,10 +33,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="BuscaProduto" HorizontalAlignment="Left" Margin="34,35,0,0" TextWrapping="Wrap" Text="Codigo ou Descriçao do item..." VerticalAlignment="Top" Width="983" Height="53" FontSize="36" Opacity="1" FontWeight="Normal" Foreground="#FFD2C9C9" FontStyle="Italic" Grid.ColumnSpan="2" />
+        <TextBox x:Name="BuscaProduto" HorizontalAlignment="Left" Margin="34,35,0,0" TextWrapping="Wrap" Text="Codigo ou Descriçao do item..." VerticalAlignment="Top" Width="983" Height="53" FontSize="36" Opacity="1" FontWeight="Normal" Foreground="#FFD2C9C9" FontStyle="Italic" Grid.ColumnSpan="2"/>
         <Button Content="Desconto" HorizontalAlignment="Left" Margin="181,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="142"/>
         <GroupBox Header="Informaçao de Venda" Margin="44,403,34,128" Grid.Column="1" FontSize="28" FontWeight="Bold" Foreground="Snow"/>
-        <TextBox x:Name="TextBox1" Grid.Column="1" HorizontalAlignment="Left" Margin="255,456,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50" FontSize="24"/>
+        <TextBox x:Name="TextBox1" Grid.Column="1" HorizontalAlignment="Left" Margin="255,456,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="175" Height="50" FontSize="24"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="255,520,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="255,582,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
         <Label Grid.Column="1" Content="TOTAL" HorizontalAlignment="Left" Margin="58,453,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
