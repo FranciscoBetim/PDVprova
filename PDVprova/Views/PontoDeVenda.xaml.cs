@@ -1,6 +1,4 @@
-﻿using PDVprova.Models;
-using PDVprova.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,33 +18,34 @@ namespace PDVprova.Views
     /// <summary>
     /// Interação lógica para PontoDeVenda.xam
     /// </summary>
-    public partial class PontoDeVenda : Page
+    public partial class PontoDeVenda : UserControl
     {
-        Atividade atividade = new Atividade("21.2");
+
         public PontoDeVenda()
         {
             InitializeComponent();
-            this.DataContext = atividade;
+            BuscaProduto.Focus();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           /* List<User> items = new List<User>();
-            items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
-            items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 7, Mail = "sammy.doe@gmail.com" });
-            ListaProdutos.ItemsSource = items;*/
+            /* List<User> items = new List<User>();
+             items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
+             items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
+             items.Add(new User() { Name = "Sammy Doe", Age = 7, Mail = "sammy.doe@gmail.com" });
+             ListaProdutos.ItemsSource = items;*/
         }
 
         private void BotaoPressionado(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.F1)
+            if (e.Key == Key.F1)
             {
-                atividade.DarDesconto();
-                this.DataContext = atividade;
+                TelaDesconto.Visibility = Visibility.Hidden;
             }
-
+            if (e.Key == Key.F2)
+            {
+                TelaDesconto.Visibility = Visibility.Visible;
+            }
         }
     }
-   
 }

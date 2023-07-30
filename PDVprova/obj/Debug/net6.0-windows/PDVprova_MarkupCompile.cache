@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Chico\source\repos\PDVprova\PDVprova\App.xaml
-2-986254762
+4389879513
 
-101220920093
+13-1187961965
 217634490863
-MainWindow.xaml;Views\PontoDeVenda.xaml;
+MainWindow.xaml;Views\CadastroProduto.xaml;Views\Desconto.xaml;Views\PontoDeVenda.xaml;
 
 False
 

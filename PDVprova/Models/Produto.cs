@@ -9,8 +9,8 @@ namespace PDVprova.Models
 {
     public class Produto 
     {
-        public string Id            { get; set; }
-        public string Codigo        { get; set; }
+        public int Id            { get; set ; }
+        public int Codigo        { get; set; }
         public string DescrProduto  { get; set; }
         public int    Quantidade    { get; set; }
         public float  ValorUnitario { get; set; }

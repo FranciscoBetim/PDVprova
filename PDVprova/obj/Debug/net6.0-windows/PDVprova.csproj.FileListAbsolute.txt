@@ -88,3 +88,8 @@ C:\Users\Chico\source\repos\PDVprova\PDVprova\bin\Debug\net6.0-windows\PDVprova.
 C:\Users\Chico\source\repos\PDVprova\PDVprova\bin\Debug\net6.0-windows\Humanizer.dll
 C:\Users\Chico\source\repos\PDVprova\PDVprova\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Chico\source\repos\PDVprova\PDVprova\bin\Debug\net6.0-windows\Mono.TextTemplating.dll
+C:\Users\Chico\source\repos\PDVprova\PDVprova\obj\Debug\net6.0-windows\Views\CadastroProduto.g.cs
+C:\Users\Chico\source\repos\PDVprova\PDVprova\obj\Debug\net6.0-windows\Views\CadastroProduto.baml
+C:\Users\Chico\source\repos\PDVprova\PDVprova\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Chico\source\repos\PDVprova\PDVprova\obj\Debug\net6.0-windows\Views\Desconto.g.cs
+C:\Users\Chico\source\repos\PDVprova\PDVprova\obj\Debug\net6.0-windows\Views\Desconto.baml

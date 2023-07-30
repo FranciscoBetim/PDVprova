@@ -1,47 +1,52 @@
-﻿<Page x:Class="PDVprova.Views.PontoDeVenda"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PDVprova.Views"
-      mc:Ignorable="d"
-      Title="PontoDeVenda" Height="770" Width="1500">
+﻿<UserControl x:Class="PDVprova.Views.PontoDeVenda"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PDVprova.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="770" d:DesignWidth="1500" KeyDown="BotaoPressionado">
 
-    <Grid KeyDown="BotaoPressionado">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF6D9A7D" Offset="0.995"/>
-                <GradientStop Color="#FF153F3D" Offset="0.138"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1003*"/>
-            <ColumnDefinition Width="497*"/>
-        </Grid.ColumnDefinitions>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="34,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="142" Background="#FFDDDDDD"/>
-        <ListView x:Name="ListaProdutos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="34,120,483,120" FontSize="20" Grid.ColumnSpan="2">
-            <ListView.View>
+    <Grid Height="770" Width="1500">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF628175" Offset="0.989"/>
+                    <GradientStop Color="#FF0E4230" Offset="0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
 
-                <GridView>
-                    <GridViewColumn  Width="50" Header="Item" DisplayMemberBinding="{Binding Item}"/>
-                    <GridViewColumn Width="500" Header="Produto" DisplayMemberBinding="{Binding DescrProduto}"/>
-                    <GridViewColumn Width="100" Header="Qtd" DisplayMemberBinding="{Binding Quantidade}"/>
-                    <GridViewColumn Width="100" Header="Valor Unit." DisplayMemberBinding="{Binding ValorUnitario}"/>
-                    <GridViewColumn Width="100" Header="Descon." DisplayMemberBinding="{Binding Desconto}"/>
-                    <GridViewColumn Width="100" Header="Valor Tot." DisplayMemberBinding="{Binding ValorTotal}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBox x:Name="BuscaProduto" HorizontalAlignment="Left" Margin="34,35,0,0" TextWrapping="Wrap" Text="Codigo ou Descriçao do item..." VerticalAlignment="Top" Width="983" Height="53" FontSize="36" Opacity="1" FontWeight="Normal" Foreground="#FFD2C9C9" FontStyle="Italic" Grid.ColumnSpan="2"/>
-        <Button Content="Desconto" HorizontalAlignment="Left" Margin="181,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="142"/>
-        <GroupBox Header="Informaçao de Venda" Margin="44,403,34,128" Grid.Column="1" FontSize="28" FontWeight="Bold" Foreground="Snow"/>
-        <TextBox x:Name="TextBox1" Grid.Column="1" HorizontalAlignment="Left" Margin="255,456,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="175" Height="50" FontSize="24"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="255,520,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="255,582,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
-        <Label Grid.Column="1" Content="TOTAL" HorizontalAlignment="Left" Margin="58,453,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
-        <Label Grid.Column="1" Content="TOTAL DESC" HorizontalAlignment="Left" Margin="58,517,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
-        <Label Grid.Column="1" Content="SUBTOTAL" HorizontalAlignment="Left" Margin="58,579,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
-        <Image Grid.Column="1" HorizontalAlignment="Left" Height="334" Margin="91,35,0,0" VerticalAlignment="Top" Width="352" Source="/Views/309592-ffffff.png"/>
+            <Button Content="Cancelar" HorizontalAlignment="Left" Margin="34,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="142" Background="#FFDDDDDD"/>
+            <ListView x:Name="ListaProdutos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="34,112,483,128" FontSize="20">
+                <ListView.View>
+
+                    <GridView>
+                        <GridViewColumn  Width="50" Header="Item" DisplayMemberBinding="{Binding Item}"/>
+                        <GridViewColumn Width="500" Header="Produto" DisplayMemberBinding="{Binding DescrProduto}"/>
+                        <GridViewColumn Width="100" Header="Qtd" DisplayMemberBinding="{Binding Quantidade}"/>
+                        <GridViewColumn Width="100" Header="Valor Unit." DisplayMemberBinding="{Binding ValorUnitario}"/>
+                        <GridViewColumn Width="100" Header="Descon." DisplayMemberBinding="{Binding Desconto}"/>
+                        <GridViewColumn Width="100" Header="Valor Tot." DisplayMemberBinding="{Binding ValorTotal}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBox x:Name="BuscaProduto" HorizontalAlignment="Left" Margin="34,35,0,0" TextWrapping="Wrap" Text="Codigo ou Descriçao do item..." VerticalAlignment="Top" Width="983" Height="53" FontSize="36" Opacity="1" FontWeight="Normal" Foreground="#FFD2C9C9" FontStyle="Italic" Grid.ColumnSpan="2"/>
+            
+            <Button Content="Desconto" HorizontalAlignment="Left" Margin="181,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="142"/>
+            <GroupBox Header="Informaçao de Venda" Margin="1057,403,34,128" FontSize="28" FontWeight="Bold" Foreground="Snow"/>
+            <TextBox x:Name="TextBox1" Text ="{Binding desconto, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="1271,448,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="175" Height="50" FontSize="24"/>
+            <TextBox HorizontalAlignment="Left" Margin="1271,512,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
+            <TextBox HorizontalAlignment="Left" Margin="1271,574,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
+            <Label Content="TOTAL" HorizontalAlignment="Left" Margin="1074,445,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
+            <Label Content="TOTAL DESC" HorizontalAlignment="Left" Margin="1074,509,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
+            <Label Content="SUBTOTAL" HorizontalAlignment="Left" Margin="1074,571,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
+            <Image HorizontalAlignment="Left" Height="334" Margin="1086,35,0,0" VerticalAlignment="Top" Width="352" Source="/Views/309592-ffffff.png"/>
+        <Grid x:Name="TelaDesconto" Visibility="Hidden">
+            <local:CadastroProduto/>
+        </Grid>
+
+
+
     </Grid>
-</Page>
+
+
+</UserControl>

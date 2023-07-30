@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDVprova" xmlns:views="clr-namespace:PDVprova.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="770" Width="1500">
-    <Grid HorizontalAlignment="Center" Width="1500" Margin="0,0,0,0">
+        Title="MainWindow" Height="770" Width="1500" >
+    <Grid Height="770" Width="1500">
         <Frame Name="Main"/>
     </Grid>
+    
+
 </Window>

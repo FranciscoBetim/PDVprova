@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PDVprova.ViewModels
 {
-    public class Atividade
+    public class Atividade : EventoPropriedades
     {
         public string desconto { get; set; }
         public Atividade(string desc) 
@@ -15,7 +15,7 @@ namespace PDVprova.ViewModels
         }
         public void DarDesconto()
         {
-            desconto = "22.2";
+            PropriedadeModificada(nameof(desconto));
         }
     }
 }
