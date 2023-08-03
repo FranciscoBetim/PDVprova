@@ -3,46 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PDVprova.Views"
+             xmlns:local="clr-namespace:PDVprova.Views" xmlns:viewmodels="clr-namespace:PDVprova.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:PontoDeVendaViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="770" d:DesignWidth="1500" KeyDown="BotaoPressionado">
+             d:DesignHeight="770" d:DesignWidth="1500">
 
-    <Grid Height="770" Width="1500">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF628175" Offset="0.989"/>
-                    <GradientStop Color="#FF0E4230" Offset="0"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+    <UserControl.InputBindings>
+        <KeyBinding Gesture="Enter" Command="{Binding ComandoRegistrar}"/>
+        <KeyBinding Gesture="F1"    Command="{Binding ComandoDesconto}"/>
+        <KeyBinding Gesture="F2"    Command="{Binding ComandoMudarPreco}" />
+        <KeyBinding Gesture="F3"    Command="{Binding ComandoCadastrarProduto}"/>
+        <KeyBinding Gesture="Esc"   Command="{Binding ComandoVoltar}" />
+    </UserControl.InputBindings>
 
-            <Button Content="Cancelar" HorizontalAlignment="Left" Margin="34,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="142" Background="#FFDDDDDD"/>
-            <ListView x:Name="ListaProdutos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="34,112,483,128" FontSize="20">
-                <ListView.View>
+    <Grid Height="770" Width="1500" Visibility="Visible">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF628175" Offset="0.989"/>
+                <GradientStop Color="#FF0E4230" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
-                    <GridView>
-                        <GridViewColumn  Width="50" Header="Item" DisplayMemberBinding="{Binding Item}"/>
-                        <GridViewColumn Width="500" Header="Produto" DisplayMemberBinding="{Binding DescrProduto}"/>
-                        <GridViewColumn Width="100" Header="Qtd" DisplayMemberBinding="{Binding Quantidade}"/>
-                        <GridViewColumn Width="100" Header="Valor Unit." DisplayMemberBinding="{Binding ValorUnitario}"/>
-                        <GridViewColumn Width="100" Header="Descon." DisplayMemberBinding="{Binding Desconto}"/>
-                        <GridViewColumn Width="100" Header="Valor Tot." DisplayMemberBinding="{Binding ValorTotal}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <TextBox x:Name="BuscaProduto" HorizontalAlignment="Left" Margin="34,35,0,0" TextWrapping="Wrap" Text="Codigo ou Descriçao do item..." VerticalAlignment="Top" Width="983" Height="53" FontSize="36" Opacity="1" FontWeight="Normal" Foreground="#FFD2C9C9" FontStyle="Italic" Grid.ColumnSpan="2"/>
-            
-            <Button Content="Desconto" HorizontalAlignment="Left" Margin="181,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="38" Width="142"/>
-            <GroupBox Header="Informaçao de Venda" Margin="1057,403,34,128" FontSize="28" FontWeight="Bold" Foreground="Snow"/>
-            <TextBox x:Name="TextBox1" Text ="{Binding desconto, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="1271,448,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="175" Height="50" FontSize="24"/>
-            <TextBox HorizontalAlignment="Left" Margin="1271,512,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
-            <TextBox HorizontalAlignment="Left" Margin="1271,574,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
-            <Label Content="TOTAL" HorizontalAlignment="Left" Margin="1074,445,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
-            <Label Content="TOTAL DESC" HorizontalAlignment="Left" Margin="1074,509,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
-            <Label Content="SUBTOTAL" HorizontalAlignment="Left" Margin="1074,571,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
-            <Image HorizontalAlignment="Left" Height="334" Margin="1086,35,0,0" VerticalAlignment="Top" Width="352" Source="/Views/309592-ffffff.png"/>
-        <Grid x:Name="TelaDesconto" Visibility="Hidden">
+        <Button Content="ENTER -&gt; Registrar" HorizontalAlignment="Left" Margin="34,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="50" Width="160" Background="#FFDDDDDD" FontSize="18"/>
+        <ListView x:Name="ListaProdutos" d:ItemsSource="{Binding }" Margin="34,112,483,128" FontSize="20">
+            <ListView.View>
+
+                <GridView>
+                    <GridViewColumn  Width="50" Header="Item" DisplayMemberBinding="{Binding Item}"/>
+                    <GridViewColumn Width="500" Header="Produto" DisplayMemberBinding="{Binding DescrProduto}"/>
+                    <GridViewColumn Width="100" Header="Qtd" DisplayMemberBinding="{Binding Quantidade}"/>
+                    <GridViewColumn Width="100" Header="Valor Unit." DisplayMemberBinding="{Binding ValorUnitario}"/>
+                    <GridViewColumn Width="100" Header="Descon." DisplayMemberBinding="{Binding Desconto}"/>
+                    <GridViewColumn Width="100" Header="Valor Tot." DisplayMemberBinding="{Binding ValorTotal}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="BuscaProduto" HorizontalAlignment="Left" Margin="34,35,0,0" TextWrapping="Wrap" Text="Codigo ou Descriçao do item..." VerticalAlignment="Top" Width="983" Height="53" FontSize="36" Opacity="1" FontWeight="Normal" Foreground="#FFD2C9C9" FontStyle="Italic" Grid.ColumnSpan="2"/>
+
+        <Button Content="F1 -&gt; Desconto" HorizontalAlignment="Left" Margin="199,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="50" Width="160" FontSize="18"/>
+        <GroupBox Header="Informaçao de Venda" Margin="1057,403,34,128" FontSize="28" FontWeight="Bold" Foreground="Snow"/>
+        <TextBox x:Name="TextBox1"  HorizontalAlignment="Left" Margin="1271,448,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="175" Height="50" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Margin="1271,512,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
+        <TextBox HorizontalAlignment="Left" Margin="1271,574,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175" Height="50"/>
+        <Label Content="TOTAL" HorizontalAlignment="Left" Margin="1074,445,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content="TOTAL DESC" HorizontalAlignment="Left" Margin="1074,509,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content="SUBTOTAL" HorizontalAlignment="Left" Margin="1074,571,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontStyle="Normal" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="334" Margin="1086,35,0,0" VerticalAlignment="Top" Width="352" Source="/Views/309592-ffffff.png"/>
+        <Grid x:Name="TelaCadastro" Visibility="{Binding VisibilidadeTelaCadastro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <local:CadastroProduto/>
         </Grid>
+        <Button Content="F2 -&gt; Mudar Preço" HorizontalAlignment="Left" Margin="364,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="50" Width="160" FontSize="18"/>
+        <Button Content="F3 -&gt; Cadastro de Produto" HorizontalAlignment="Left" Margin="529,667,0,0" VerticalAlignment="Top" Click="Button_Click" Height="50" Width="221" FontSize="18"/>
 
 
 

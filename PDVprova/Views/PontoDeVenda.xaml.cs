@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PDVprova.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +21,13 @@ namespace PDVprova.Views
     /// </summary>
     public partial class PontoDeVenda : UserControl
     {
-
+        
         public PontoDeVenda()
         {
             InitializeComponent();
-            BuscaProduto.Focus();
+            DataContext = new PontoDeVendaViewModel(this);
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             /* List<User> items = new List<User>();
@@ -34,18 +35,6 @@ namespace PDVprova.Views
              items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
              items.Add(new User() { Name = "Sammy Doe", Age = 7, Mail = "sammy.doe@gmail.com" });
              ListaProdutos.ItemsSource = items;*/
-        }
-
-        private void BotaoPressionado(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.F1)
-            {
-                TelaDesconto.Visibility = Visibility.Hidden;
-            }
-            if (e.Key == Key.F2)
-            {
-                TelaDesconto.Visibility = Visibility.Visible;
-            }
         }
     }
 }

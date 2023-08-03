@@ -3,19 +3,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PDVprova.Views"
+             xmlns:local="clr-namespace:PDVprova.Views" xmlns:viewmodels="clr-namespace:PDVprova.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CadastroProdutosViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="770" d:DesignWidth="1500">
-
-    <Grid Height="770" Width="1500">
+    <UserControl.InputBindings>
+        <KeyBinding Gesture="F4" Command="{Binding ComandoCadastrar}"/>
+        <KeyBinding Gesture="F5" Command="{Binding ComandoExcluir}"/>
+    </UserControl.InputBindings>
+    
+    <Grid Margin="310,124,311,138">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="715*"/>
+            <ColumnDefinition Width="166*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF628175" Offset="0.989"/>
                 <GradientStop Color="#FF0E4230" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Image HorizontalAlignment="Left" Height="334" Margin="1086,35,0,0" VerticalAlignment="Top" Width="352" Source="/Views/309592-ffffff.png"/>
-        <GroupBox Header="Cadastro De Produtos" Margin="51,35,440,0" FontSize="48" Foreground="#FFF6F5F5" FontWeight="Bold" FontStyle="Italic" Height="619" VerticalAlignment="Top"/>
+
+        <GroupBox Header="Cadastro De Produtos" Margin="5,0,5,10" FontSize="36" FontWeight="Bold" Foreground="White" AllowDrop="True" Grid.ColumnSpan="2"/>
+        <GroupBox Header="Descriçao do Produto" Margin="30,50,30,392" Grid.ColumnSpan="2" FontSize="18" Foreground="White">
+            <TextBox x:Name="DescrProdutoCAD" Text="{Binding DadosCadastro.DescrProduto}" HorizontalAlignment="Center" TextWrapping="Wrap" Width="788"/>
+        </GroupBox>
+        <GroupBox Header="Codigo do Produto" Margin="30,116,458,326" Foreground="White" FontSize="18">
+            <TextBox x:Name="CodProdutoCAD" Text="{Binding DadosCadastro.Codigo}" HorizontalAlignment="Center" TextWrapping="Wrap" Width="193"/>
+        </GroupBox>
+        <GroupBox Header="Preço de Custo" Margin="260,116,254,326" Foreground="White" FontSize="18">
+            <TextBox x:Name="ValCustoCAD" Text="{Binding DadosCadastro.PrecoCusto}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Width="171"/>
+        </GroupBox>
+        <GroupBox Header="Preço de Venda" Margin="464,116,49,326" Foreground="White" FontSize="18">
+            <TextBox x:Name="ValVendaCAD" Text="{Binding DadosCadastro.ValorUnitario}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Width="171"/>
+        </GroupBox>
+        <GroupBox Header="Quantidade(estoq.)" Margin="670,116,30,326" Foreground="White" FontSize="18" Grid.ColumnSpan="2">
+            <TextBox x:Name="QtdEstoqueCAD" Text="{Binding DadosCadastro.Estoque}" HorizontalAlignment="Center" TextWrapping="Wrap" Width="146"/>
+        </GroupBox>
+        
+        <ListView x:Name="ListaProdutosCadastrados" ItemsSource="{Binding ListaProdutosCAD.ItemsSource, UpdateSourceTrigger=PropertyChanged}" Margin="30,205,30,84" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Width="80" Header="Codigo" DisplayMemberBinding="{Binding Codigo}"/>
+                    <GridViewColumn Width="420" Header="Descriçao" DisplayMemberBinding="{Binding DescrProduto}"/>
+                    <GridViewColumn Width="100" Header="Custo" DisplayMemberBinding="{Binding PrecoCusto}"/>
+                    <GridViewColumn Width="100" Header="Valor Venda." DisplayMemberBinding="{Binding ValorUnitario}"/>
+                    <GridViewColumn Width="100" Header="Quantidade." DisplayMemberBinding="{Binding Estoque}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <Button Content="F4 -&gt; Cadastrar" HorizontalAlignment="Left" Margin="30,439,0,0" VerticalAlignment="Top" Height="43" Width="138" FontSize="18"/>
+        <Button Content="F5 -&gt; Excluir" HorizontalAlignment="Left" Margin="173,439,0,0" VerticalAlignment="Top" Height="43" Width="138" FontSize="18"/>
+        <Button Content="ESC -&gt; Voltar" HorizontalAlignment="Left" Margin="711,439,0,0" VerticalAlignment="Top" Height="43" Width="138" FontSize="18" Grid.ColumnSpan="2"/>
+
+
+
 
     </Grid>
 </UserControl>
